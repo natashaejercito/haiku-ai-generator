@@ -101,10 +101,10 @@ const HaikuGenerator = () => {
     "ocean",
     "dream",
     "hope",
-    "mountain",
     "love",
     "rain",
     "spring",
+    "joy",
   ];
 
   return (
@@ -127,40 +127,36 @@ const HaikuGenerator = () => {
           <div className="p-6 sm:p-8">
             <div className="mb-6">
               <div className="flex items-center justify-between mb-4">
-                <label className="text-lg sm:text-xl font-medium text-gray-700 font-serif">
+                <label className="text-lg sm:text-xl font-medium text-gray-700 font-serif flex items-center gap-2">
                   Your Haiku inspiration
-                </label>
-                {/* Info button*/}
-                <div className="relative">
-                  <button
-                    onClick={() => setShowInfo(!showInfo)}
-                    className="text-gray-400 hover:text-gray-600 transition-colors p-1"
-                    aria-label="Information"
-                  >
-                    <Info size={20} />
-                  </button>
+                  {/* Info button*/}
+                  <div className="relative">
+                    <button
+                      onClick={() => setShowInfo(!showInfo)}
+                      className="text-gray-400 hover:text-gray-600 transition-colors p-1"
+                      aria-label="Information"
+                    >
+                      <Info size={20} />
+                    </button>
 
-                  {/* Responsive Info button*/}
-                  {showInfo && (
-                    <div className="absolute top-8 right-0 sm:right-auto sm:left-0 bg-gray-800 text-white text-sm rounded-lg p-4 shadow-lg z-10 w-80 max-w-[calc(100vw-2rem)]">
-                      <h3 className="font-semibold mb-2">How to use:</h3>
-                      <ul className="space-y-1">
-                        <li>• Each poem follows 5-7-5 syllable pattern</li>
-                        <li>• Enter any word, emotion, or concept</li>
-                        <li>• Try words like "sunset", "love", "mountain"</li>
-                        <li>
-                          •{" "}
-                          {API_CONFIG.apiKey
-                            ? "Using AI API"
-                            : "Demo mode active"}
-                        </li>
-                      </ul>
-                    </div>
-                  )}
-                </div>
+                    {/* Responsive Info popup */}
+                    {showInfo && (
+                      <div className="absolute top-8 right-10 sm:right-auto sm:left-0 bg-gray-700 text-pink-300 text-sm rounded-lg p-4 shadow-lg z-10 w-80 max-w-[calc(100vw-2rem)] font-serif">
+                        <h3 className="mb-2">How to use:</h3>
+                        <ul className="space-y-1">
+                          <li>• Each poem follows 5-7-5 syllable pattern</li>
+                          <li>• Enter any word, emotion, or concept</li>
+                          <li>
+                            • Try words like "sunset", "love", "dream", etc.
+                          </li>
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                </label>
               </div>
 
-              {/* Input and button - responsive layout */}
+              {/* Input and button*/}
               <div className="flex flex-col sm:flex-row gap-3">
                 <input
                   type="text"
